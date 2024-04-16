@@ -73,3 +73,18 @@
   line-clamp: 4;
   -webkit-box-orient: vertical;
 }
+
+.category-card {
+  padding: 20px;
+  border-radius: 30px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+}
+
+.category-card-title {
+  font-size: 32px !important;
+  font-weight: 700;
+  text-transform: capitalize;
+}

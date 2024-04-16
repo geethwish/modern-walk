@@ -80,7 +80,7 @@ label {
 }
 
 .root-container {
-  @apply mt-16 flex-1 overflow-auto py-8 mt-0 lg:max-h-screen lg:px-28 md:px-20 sm:px-16;
+  @apply mt-16 flex-1 overflow-auto pb-2 mt-0 lg:max-h-screen lg:px-28 md:px-20 sm:px-16;
 }
 
 @media (max-width: 639px) {

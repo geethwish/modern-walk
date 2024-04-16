@@ -1,50 +1,59 @@
 "use client";
 import Carousel from "@/components/shared/Carousel/Carousel";
+import CategoryCard from "@/components/shared/CategoryCard/CategoryCard";
 import ProductCard from "@/components/shared/ProductCard/ProductCard";
 import SectionTitle from "@/components/shared/SectionTitle/SectionTitle";
-import React from "react";
+import {
+  cleanFlashSales,
+  fetchFlashProducts,
+  flashProducts,
+  flashProductsApiStatus,
+} from "lib/features/products/flashSales.slice";
+import { useAppDispatch, useAppSelector } from "lib/hooks";
+import React, { useEffect } from "react";
 import { SwiperSlide } from "swiper/react";
 const page = () => {
-  const product = {
-    id: 1,
-    title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-    price: 109.95,
-    description:
-      "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-    category: "men's clothing",
-    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-    rating: {
-      rate: 3.9,
-      count: 120,
-    },
-  };
+  const dispatch = useAppDispatch();
+  const apiStatus = useAppSelector(flashProductsApiStatus);
+  const products = useAppSelector(flashProducts);
+
+  // fetch flash product when component loading
+  useEffect(() => {
+    dispatch(fetchFlashProducts({ limit: 20 }));
+
+    return () => {
+      dispatch(cleanFlashSales());
+    };
+  }, []);
+
   return (
     <main>
       <section>
         <SectionTitle title="Flash Sales" />
-        <Carousel>
-          <SwiperSlide>
-            <ProductCard product={product} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard product={product} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard product={product} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard product={product} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard product={product} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard product={product} />
-          </SwiperSlide>
-        </Carousel>
+        {products.length > 0 && (
+          <Carousel>
+            {products.map((product, index) => (
+              <SwiperSlide key={index}>
+                <ProductCard product={product} />
+              </SwiperSlide>
+            ))}
+          </Carousel>
+        )}
       </section>
       <section>
         <SectionTitle title="Categories" />
+        <div className="grid grid-cols-2 gap-8 px-2">
+          <CategoryCard
+            title={"men's clothing"}
+            color="#2bd9af"
+            path="mens-clothing"
+          />
+          <CategoryCard
+            title={"women's clothing"}
+            color="#ff5e84"
+            path="womens-clothing"
+          />
+        </div>
       </section>
     </main>
   );
