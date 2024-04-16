@@ -1,35 +1,21 @@
-# Next.js + Jest
+## version details
 
-This example shows how to configure Jest to work with Next.js.
+npm version : 10.5.2
+node version : 20.11.0
+Next js version : 14.0
 
-This includes Next.js' built-in support for Global CSS, CSS Modules and TypeScript. This example also shows how to use Jest with the App Router and React Server Components.
+## Installation guide
 
-> **Note:** Since tests can be co-located alongside other files inside the App Router, we have placed those tests in `app/` to demonstrate this behavior (which is different than `pages/`). You can still place all tests in `__tests__` if you prefer.
+1. clone the project into your computer
+2. Go inside the project folder
+3. open terminal inside the project folder
+4. for install node packages run `npm i` or `npm install` or `yarn install`
+5. run `npm build` or `yarn build`
+6. run ` npm start` or `yarn start`
 
-## Deploy your own
+### Testing guide
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-jest&project-name=with-jest&repository-name=with-jest)
+after node package installation
 
-## How to Use
-
-Quickly get started using [Create Next App](https://github.com/vercel/next.js/tree/canary/packages/create-next-app#readme)!
-
-In your terminal, run the following command:
-
-```bash
-npx create-next-app --example with-jest with-jest-app
-```
-
-```bash
-yarn create next-app --example with-jest with-jest-app
-```
-
-```bash
-pnpm create next-app --example with-jest with-jest-app
-```
-
-## Running Tests
-
-```bash
-npm test
-```
+1. run `npm test` or `yarn test` to check out the test case
+2. run `npm test:coverage` or `yarn test:coverage` for check out code coverage

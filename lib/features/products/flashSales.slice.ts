@@ -46,8 +46,6 @@ export const flashProductsSlice = createAppSlice({
       .addCase(fetchFlashProducts.fulfilled, (state, action) => {
         state.status = "success";
 
-        console.log(action.payload);
-
         // given design only shows woment's clothing and men's clothing because of that in here will filter products that related those mentioned categories
         const allProducts = action.payload as Product[];
         const filteredProducts = allProducts.filter((product: Product) => {

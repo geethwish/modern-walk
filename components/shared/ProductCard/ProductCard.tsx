@@ -1,13 +1,6 @@
 import React, { FC } from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
 type Rating = {
   rate: number;
   count: number;
@@ -19,7 +12,7 @@ interface IProductCard {
     price: number;
     description: string;
     category: string;
-    image: string;
+    image: string | null;
     rating: Rating;
   };
 }
@@ -41,26 +34,32 @@ const ProductCard: FC<IProductCard> = ({ product }) => {
   };
 
   return (
-    <div>
-      <Card className="w-[340px] product-card p-4 h-fit">
-        <CardHeader>
-          <CardTitle className="product-card-title">{title ?? ""}</CardTitle>
-        </CardHeader>
-        <CardContent className="flex justify-center">
-          <div className="product-image">
-            <img src={getImageUrl()} alt={title} />
-          </div>
-          <div
-            className={`product-card-footer mt-8 ${
-              category === "men's clothing" ? "bg-[#2bd9af]" : "bg-[#ff5e84]"
-            }`}
-          >
-            <div className="product-price">RS {price}</div>
-            <p className="product-description">{description}</p>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
+    <>
+      <div className="relative">
+        <Card className="product-card p-4 h-fit">
+          <CardHeader>
+            <CardTitle className="product-card-title">{title}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex justify-center">
+              <div className="product-image">
+                <img src={getImageUrl()} alt={title} />
+              </div>
+              <div
+                className={`product-card-footer mt-8 ${
+                  category === "men's clothing"
+                    ? "bg-[#2bd9af]"
+                    : "bg-[#ff5e84]"
+                }`}
+              >
+                <div className="product-price">RS {price}</div>
+                <p className="product-description">{description}</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </>
   );
 };
 

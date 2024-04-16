@@ -1,6 +1,7 @@
 "use client";
 import Carousel from "@/components/shared/Carousel/Carousel";
 import CategoryCard from "@/components/shared/CategoryCard/CategoryCard";
+import Loader from "@/components/shared/Loader/Loader";
 import ProductCard from "@/components/shared/ProductCard/ProductCard";
 import SectionTitle from "@/components/shared/SectionTitle/SectionTitle";
 import {
@@ -25,6 +26,10 @@ const page = () => {
       dispatch(cleanFlashSales());
     };
   }, []);
+
+  if (apiStatus === "loading") {
+    return <Loader />;
+  }
 
   return (
     <main>

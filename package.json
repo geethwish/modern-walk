@@ -5,11 +5,13 @@
     "build": "next build",
     "start": "next start",
     "test": "jest --watch",
+    "test:coverage": "jest --coverage",
     "test:ci": "jest --ci"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.19",
     "@heroicons/react": "^2.1.3",
+    "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-toast": "^1.1.5",
     "@reduxjs/toolkit": "^2.2.3",
     "autoprefixer": "^10.4.19",
