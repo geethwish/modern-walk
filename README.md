@@ -1,8 +1,8 @@
 ## version details
 
-npm version : 10.5.2.<br/>
-node version : 20.11.0.
-Next js version : 14.0.
+npm version : 10.5.2 <br/>
+node version : 20.11.0 <br/>
+Next js version : 14.0 <br/>
 
 ## Installation guide
 
