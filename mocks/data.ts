@@ -1,4 +1,4 @@
-import { Product } from "../features/products/Products.types"
+import { Product } from "../lib/features/products/Products.types";
 
 export const fakeProduct: Product[] = [
   {
@@ -40,4 +40,4 @@ export const fakeProduct: Product[] = [
       count: 145,
     },
   },
-]
+];
