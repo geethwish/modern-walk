@@ -1,4 +1,5 @@
 "use client";
+import React, { useEffect } from "react";
 import Carousel from "@/components/shared/Carousel/Carousel";
 import CategoryCard from "@/components/shared/CategoryCard/CategoryCard";
 import Loader from "@/components/shared/Loader/Loader";
@@ -11,8 +12,8 @@ import {
   flashProductsApiStatus,
 } from "lib/features/products/flashSales.slice";
 import { useAppDispatch, useAppSelector } from "lib/hooks";
-import React, { useEffect } from "react";
 import { SwiperSlide } from "swiper/react";
+
 const page = () => {
   const dispatch = useAppDispatch();
   const apiStatus = useAppSelector(flashProductsApiStatus);
@@ -27,6 +28,7 @@ const page = () => {
     };
   }, []);
 
+  // show page loader when api product api status loading
   if (apiStatus === "loading") {
     return <Loader />;
   }

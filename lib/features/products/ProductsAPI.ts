@@ -1,6 +1,7 @@
 import axios from "axios";
 import { ProductCategoryType, ProductsFilter } from "./Products.types";
 
+// Request flash products
 export const requestProducts = (data: ProductsFilter) => {
   return new Promise((resolve, reject) => {
     axios
@@ -14,6 +15,7 @@ export const requestProducts = (data: ProductsFilter) => {
   });
 };
 
+// Request products by given category
 export const requestProductsByCategory = ({
   category,
   filters,

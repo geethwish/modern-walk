@@ -12,16 +12,19 @@ jest.mock("swiper/modules", () => ({
   FreeMode: jest.fn(),
 }));
 
+// mocked swipe functions
 jest.mock("swiper/react", () => ({
   SwiperSlide: jest.fn(),
   useSwiper: jest.fn(),
   Swiper: jest.fn(),
 }));
 
+// mocked css files because some imports causes issues.
 jest.mock("swiper/css", () => "");
 jest.mock("swiper/css/pagination", () => "");
 jest.mock("swiper/css/navigation", () => "");
 jest.mock("swiper/css/free-mode", () => "");
+
 describe("Landing page load successfully", () => {
   it("component loaded", async () => {
     render(

@@ -1,3 +1,4 @@
+/* Navbar */
 .navbar {
   height: 60px;
   display: flex;
@@ -21,6 +22,7 @@
   font-weight: 600;
 }
 
+/* Product card */
 .product-card {
   border-radius: 30px !important;
   height: 100%;
@@ -73,6 +75,7 @@
   -webkit-box-orient: vertical;
 }
 
+/* Category card */
 .category-card {
   padding: 20px;
   border-radius: 30px !important;
@@ -88,6 +91,7 @@
   text-transform: capitalize;
 }
 
+/* Mobile  responsiveness handle  */
 @media (max-width: 639px) {
   .product-card {
     width: 100%;

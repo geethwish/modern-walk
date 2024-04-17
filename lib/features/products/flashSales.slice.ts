@@ -1,6 +1,6 @@
 import { createAppSlice } from "./../../createAppSlice";
-import type { AppThunk, RootState } from "./../../store";
-import { createAsyncThunk, type PayloadAction } from "@reduxjs/toolkit";
+import type { RootState } from "./../../store";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import { requestProducts } from "./ProductsAPI";
 import { Product, ProductsFilter } from "./Products.types";
 
@@ -46,7 +46,7 @@ export const flashProductsSlice = createAppSlice({
       .addCase(fetchFlashProducts.fulfilled, (state, action) => {
         state.status = "success";
 
-        // given design only shows woment's clothing and men's clothing because of that in here will filter products that related those mentioned categories
+        // given design only shows women's clothing and men's clothing because of that in here will filter products that related those mentioned categories
         const allProducts = action.payload as Product[];
         const filteredProducts = allProducts.filter((product: Product) => {
           return (

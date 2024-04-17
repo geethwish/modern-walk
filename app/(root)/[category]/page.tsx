@@ -19,6 +19,7 @@ const page = () => {
   const [clothingCategory, setClothingCategory] = useState("");
 
   useEffect(() => {
+    // Get category from page url
     const pathParameter = params.category;
     if (pathParameter !== undefined) {
       const pathName = location.pathname.substring(1);
@@ -38,9 +39,11 @@ const page = () => {
     }
   }, [params]);
 
+  // Show page loader when product api status loading
   if (apiStatus === "loading") {
     return <Loader />;
   }
+
   return (
     <section>
       <SectionTitle title={clothingCategory} />
